@@ -1,0 +1,8 @@
+com/portal/controller/PersonController.class
+com/portal/dao/LoginDaoImpl.class
+com/portal/dao/PersonDao.class
+com/portal/entity/Person.class
+com/portal/dao/PersonDaoImpl.class
+com/portal/dao/LoginDao.class
+com/portal/controller/LoginController.class
+com/portal/entity/Login.class
