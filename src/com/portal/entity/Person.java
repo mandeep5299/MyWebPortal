@@ -1,10 +1,14 @@
 package com.portal.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -14,13 +18,15 @@ import javax.persistence.Table;
 public class Person {
 
 	private int personId;
+	private Login login;
 	private String firstName;
 	private String lastName;
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	private String gender;
 	private String country;
-	private int phone;
+	private long phone;
 	private String email;
+	
 	
 	@Id
 	@Column(name = "personId", nullable =  false, length = 15)
@@ -30,6 +36,15 @@ public class Person {
 	}
 	public void setPersonId(int personId) {
 		this.personId = personId;
+	}
+	
+	@OneToOne
+	@JoinColumn(name = "loginId")
+	public Login getLogin() {
+		return login;
+	}
+	public void setLogin(Login login) {
+		this.login = login;
 	}
 	
 	@Column(name= "firstName", nullable =  false, length = 15)
@@ -49,10 +64,10 @@ public class Person {
 	}
 	
 	@Column(name= "dateOfBirth", nullable =  false, length = 10)
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	
@@ -73,10 +88,10 @@ public class Person {
 	}
 	
 	@Column(name = "phone", nullable =  false, length = 10)
-	public int getPhone() {
+	public long getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 	
@@ -87,4 +102,7 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+	
 }

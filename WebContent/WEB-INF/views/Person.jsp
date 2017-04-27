@@ -8,34 +8,38 @@
 <title>Add Person</title>
 </head>
 <body>
-	<form:form name='PersonForm' id='PersonForm' action="addPerson.htm" commandName="personData" method="post">
+	<form:form name='personForm' id='personForm' action="addPerson.htm" commandName="personData" method="post">
 		<table>
 			<tr>
-				<td>First Name:<input type="text" name='firstName'
-					id='firstName'></td>
-				<td>Last Name:<input type="text" name='lastName' id='lastName'></td>
+				<td>First Name:<input type="text" name="firstName" id="firstName"/></td>
+				<td>Last Name:<input type="text" name="lastName" id="lastName" /></td>
 			</tr>
 			<tr>
-				<td>Date Of Birth:<input type="text" name='dateOfBirth'
-					id='dateOfBirth'></td>
+			<td>User name:<input type="text" name="login.username" id="login.username"/></td>
+			<td>Password:<input type="password" name="login.password" id="login.password"/></td>
+			
 			</tr>
 			<tr>
-				<td>Gender: <select name='gender' id='gender'>
-						<option id='Male'>Male</option>
-						<option id='Female'>Female</option>
-						<option id='Others'>Others</option>
+				<td>Date Of Birth:<input type="text" name="dateOfBirth" id="dateOfBirth" /></td>
+			</tr>
+			<tr>
+				<td>Gender: <select name="gender" id="gender" >
+						<option id='Male' value="Male">Male</option>
+						<option id='Female' value="Female">Female</option>
+						<option id='Others' value="Others">Others</option>
 				</select>
 				</td>
 			</tr>
 			<tr>
-				<td>Country:<input type="text" name='country' id='country'></td>
-				<td>Phone:<input type="text" name='phone' id='phone'></td>
+				<td>Country:<input type="text" name="country" id="country" /></td>
+				<td>Phone:<input type="text" name="phone" id="phone" /></td>
 			</tr>
 			<tr>
-				<td>Email:<input type="text" name='email' id='email'></td>
+				<td>Email:<input type="text" name="email" id="email"/></td>
 			</tr>
 			<tr>
-				<td><input type="submit" name='addPerson' id='addPerson' value='Save Person'></td>
+				<td><input type="submit" name='addPerson' id='addPerson'
+					value='Save Person'></td>
 			</tr>
 		</table>
 	</form:form>
