@@ -79,7 +79,7 @@ public class Person {
 		this.gender = gender;
 	}
 	
-	@Column(name = "country", nullable =  false, length = 15)
+	@Column(name = "country", nullable =  false, length = 25)
 	public String getCountry() {
 		return country;
 	}
@@ -94,7 +94,6 @@ public class Person {
 	public void setPhone(long phone) {
 		this.phone = phone;
 	}
-	
 	@Column(name = "email", nullable =  false, length = 25)
 	public String getEmail() {
 		return email;
