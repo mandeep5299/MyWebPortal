@@ -11,6 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @SequenceGenerator(name="personId", initialValue=1, allocationSize=100)
@@ -19,12 +24,21 @@ public class Person {
 
 	private int personId;
 	private Login login;
+	@NotEmpty(message = "Please enter first name.")
 	private String firstName;
+	@NotEmpty (message = "Please enter last name.")
 	private String lastName;
+	@NotNull(message= "Please enter date of birth.")
+	@DateTimeFormat( pattern = "dd/MM/YY")
 	private Date dateOfBirth;
+	@NotEmpty(message = "Please select gender.")
 	private String gender;
+	@NotEmpty(message = "Please enter country." )
 	private String country;
-	private long phone;
+	@NotNull(message = "Please enter phone." )
+	private Integer phone;
+	@NotEmpty( message = "Please enter valid email id.")
+	@Email
 	private String email;
 	
 	
@@ -88,10 +102,10 @@ public class Person {
 	}
 	
 	@Column(name = "phone", nullable =  false, length = 10)
-	public long getPhone() {
+	public Integer getPhone() {
 		return phone;
 	}
-	public void setPhone(long phone) {
+	public void setPhone(Integer phone) {
 		this.phone = phone;
 	}
 	@Column(name = "email", nullable =  false, length = 25)

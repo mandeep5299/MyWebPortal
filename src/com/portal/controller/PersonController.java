@@ -3,9 +3,11 @@ package com.portal.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,9 +39,13 @@ public class PersonController {
 	}
 	
 	@RequestMapping(value = "/addPerson.htm", method = RequestMethod.POST)
-	public ModelAndView addPerson(@ModelAttribute("personData") Person personData){
+	public ModelAndView addPerson(@ModelAttribute("personData") @Valid Person personData, BindingResult result){
 		ModelAndView model = null;
-		System.out.println("coming here >>" + personData.getLogin().getUsername());
+		if(result.hasErrors()){
+			System.out.println(result);
+			model = new ModelAndView("Person");
+					return model;
+		}
 		Login loginObj = personData.getLogin();
 		model = new ModelAndView("Home");
 		loginDaoImpl.addUserLogin(loginObj);
