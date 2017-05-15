@@ -13,10 +13,12 @@
  <TR>
  	<td>User Name: </td>
  	<td><input type='text' name='username' id='username'></td>
+ 	<td><form:errors path="username" class = 'mandatoryFields'/></td>
  </TR>
  <TR>
  	<td>Password: </td>
  	<td><input type="password" name='password' id='password'></td>
+ 	<td><form:errors path="password" class = 'mandatoryFields'/></td>
  </TR>
  <TR>
  	<TD><input type="submit" name='submit' >
