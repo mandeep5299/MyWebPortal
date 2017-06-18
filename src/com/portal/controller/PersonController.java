@@ -43,8 +43,8 @@ public class PersonController {
 
 	@RequestMapping(value = "/processHomeForm.htm", params = "listPerson", method = RequestMethod.POST)
 	public ModelAndView listPerson() {
-		List<Person> personList = personDaoImpl.getPersonList();
-		ModelAndView model = new ModelAndView("PersonList", "personList", personList);
+		List<Object> personAllDataList = personDaoImpl.getPersonAllDataList();
+		ModelAndView model = new ModelAndView("PersonList", "personAllDataList", personAllDataList);
 		return model;
 	}
 

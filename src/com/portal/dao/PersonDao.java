@@ -8,4 +8,5 @@ public interface PersonDao {
 
 	public boolean addPerson(Person person);
 	public List<Person> getPersonList();
+	public List<Object> getPersonAllDataList();
 }

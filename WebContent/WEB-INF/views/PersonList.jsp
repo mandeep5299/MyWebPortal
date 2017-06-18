@@ -16,17 +16,29 @@
 			<th>Phone</th>
 			<th>Country</th>
 			<th>Email</th>
+			<th>User name</th>
+			<th>Password</th>
+			<th>Security Question1</th>
+			<th>Answer</th>
+			<th>SecurityQuestion2</th>
+			<th>Answer</th>
 		</tr>
 
-		<c:forEach var="person" items="${personList}">
+		<c:forEach var="personAllData" items="${personAllDataList}">
 			<tr>
-				<td>${person.personId}</td>
-				<td>${person.firstName} ${person.lastName}</td>
-				<td>${person.dateOfBirth}</td>
-				<td>${person.gender}</td>
-				<td>${person.phone}</td>
-				<td>${person.country}</td>
-				<td>${person.email}</td>
+				<td>${personAllData.personId}</td>
+				<td>${personAllData.firstName} ${personAllData.lastName}</td>
+				<td>${personAllData.dateOfBirth}</td>
+				<td>${personAllData.gender}</td>
+				<td>${personAllData.phone}</td>
+				<td>${personAllData.country}</td>
+				<td>${personAllData.email}</td>
+				<td>${personAllData.username}</td>
+				<td>${personAllData.password}</td>
+				<td>${personAllData.question}</td>
+				<td>${personAllData.answerToQuestion}</td>
+				<td>${personAllData.question}</td>
+				<td>${personAllData.answerToQuestion}</td>
 			</tr>
 		</c:forEach>
 	</table>
