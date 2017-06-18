@@ -21,7 +21,7 @@
 		<c:forEach var="person" items="${personList}">
 			<tr>
 				<td>${person.personId}</td>
-				<td>${person.firstName}${person.lastName}</td>
+				<td>${person.firstName} ${person.lastName}</td>
 				<td>${person.dateOfBirth}</td>
 				<td>${person.gender}</td>
 				<td>${person.phone}</td>

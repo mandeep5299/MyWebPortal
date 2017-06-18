@@ -4,5 +4,7 @@
 	<!-- List of XML mapping files -->
 		<mapping class="com.portal.entity.Login" />
 		<mapping class="com.portal.entity.Person" />
+		<mapping class="com.portal.entity.SecurityQuestions" />
+		<mapping class="com.portal.entity.PersonSecurityQuestionMapping" />
 	</session-factory>
 </hibernate-configuration>

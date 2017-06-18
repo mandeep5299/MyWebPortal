@@ -1,13 +1,19 @@
 package com.portal.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -36,15 +42,16 @@ public class Person {
 	@NotEmpty(message = "Please enter country." )
 	private String country;
 	@NotNull(message = "Please enter phone." )
-	private Integer phone;
+	private Long phone;
 	@NotEmpty( message = "Please enter valid email id.")
 	@Email
 	private String email;
-	
+	private List<PersonSecurityQuestionMapping> personSecurityQuestionMapping = new ArrayList<PersonSecurityQuestionMapping>();
 	
 	@Id
 	@Column(name = "personId", nullable =  false, length = 15)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "personId")
+	
 	public int getPersonId() {
 		return personId;
 	}
@@ -102,10 +109,10 @@ public class Person {
 	}
 	
 	@Column(name = "phone", nullable =  false, length = 10)
-	public Integer getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 	@Column(name = "email", nullable =  false, length = 25)
@@ -115,6 +122,16 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	@OneToMany(targetEntity = PersonSecurityQuestionMapping.class, mappedBy = "securityQuestions",
+			cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public List<PersonSecurityQuestionMapping> getPersonSecurityQuestionMapping() {
+		return personSecurityQuestionMapping;
+	}
+	public void setPersonSecurityQuestionMapping(List<PersonSecurityQuestionMapping> personSecurityQuestionMapping) {
+		this.personSecurityQuestionMapping = personSecurityQuestionMapping;
+	}
+	
+	
 	
 	
 	
