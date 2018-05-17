@@ -9,7 +9,7 @@
 </head>
 <body>
 <form:form name="loginform" id="loginform" action="Home.htm" method="post" commandName="loginData">
-<table>
+<table align='center'>
  <TR>
  	<td>User Name: </td>
  	<td><input type='text' name='username' id='username'></td>
@@ -21,7 +21,7 @@
  	<td><form:errors path="password" class = 'mandatoryFields'/></td>
  </TR>
  <TR>
- 	<TD><input type="submit" name='submit' >
+ 	<TD colspan=2 align='center'><input type="submit" value='Login' >
  	</TD>
  </TR>
  </table>

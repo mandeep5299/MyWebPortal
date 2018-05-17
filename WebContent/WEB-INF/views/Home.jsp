@@ -11,7 +11,7 @@
 	<form:form name='HomeForm' id='HomeForm' action='processHomeForm.htm'
 		method="post">
 		<h4>Welcome: ${loginDetails.getUsername()}</h4>
-		<table>
+		<table align='center'>
 			<tr>
 				<td><input type="submit" name='addPerson' id='addPerson'
 					value="Add Person"></td>

@@ -6,7 +6,7 @@
 </head>
 <body>
 		<h3>Person List:</h3>
-		<table border=1>
+		<table border=1 cellspacing="0" cellpadding="0">
 			<tr>
 				<th>Id</th>
 				<th>Name</th>
