@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,6 +41,14 @@ public class PersonController {
 		model.addObject("personData", new Person());
 		return model;
 	}
+	@RequestMapping(value = "person.htm/{Person}", method = RequestMethod.GET)
+	public ModelAndView showPersonDetails(@PathVariable("Person") int personId, Model model1) {
+		System.out.println(personId);
+		List<SecurityQuestions> securityQuestionsList = securityQuestionsDaoImpl.getAllSecurityQuestionsList();
+		ModelAndView model = new ModelAndView("Person", "securityQuestionsList", securityQuestionsList);
+		model.addObject("personData", new Person());
+		return model;
+	}
 
 	@RequestMapping(value = "/processHomeForm.htm", params = "listPerson", method = RequestMethod.POST)
 	public ModelAndView listPerson() {
@@ -52,7 +61,6 @@ public class PersonController {
 	public ModelAndView addPerson(@ModelAttribute("personData") Person personData, BindingResult result){
 		ModelAndView model = null;
 		if(result.hasErrors()){
-			System.out.println(result);
 			model = new ModelAndView("Person");
 					return model;
 		}
